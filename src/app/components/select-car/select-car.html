@@ -1,0 +1,15 @@
+<ion-list>
+    @for (item of carsData(); track item.id) {
+    <ion-button (click)="setMqtt(item.carName,item.carNumber)" fill="outline" expand="block">
+        <div>
+            <ion-text>{{item.carName}}</ion-text>
+            <ion-text>{{item.carNumber}}</ion-text>
+        </div>
+    </ion-button>
+    }
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="navigateToAddPage()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-list>

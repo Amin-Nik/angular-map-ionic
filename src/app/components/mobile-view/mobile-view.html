@@ -1,0 +1,25 @@
+<ion-list fullscreen="true">
+    <div style="width: 100%;">
+        <ion-item>
+            <ion-input [label]="formError().hasNameError ? 'نام دلخواه خودرو * ' : 'نام دلخواه خودرو'"
+                labelPlacement="floating" (ionBlur)="nameTouched = true" [(ngModel)]="carName"></ion-input>
+        </ion-item>
+        @if (nameTouched && formError().hasNameError) {
+        <ion-text color="danger">
+            <p class="input-error">{{formError().nameErrorMessage}}</p>
+        </ion-text>
+        }
+    </div>
+    <div style="width: 100%;">
+        <ion-item>
+            <ion-input type="number" [label]="formError().hasNumberError ? 'شماره خودرو * ' : 'شماره خودرو'"
+                labelPlacement="floating" (ionBlur)="numberTouched = true" [(ngModel)]="carNumber"></ion-input>
+        </ion-item>
+        @if (numberTouched && formError().hasNumberError) {
+        <ion-text color="danger">
+            <p class="input-error">{{formError().numberErrorMessage}}</p>
+        </ion-text>
+        }
+    </div>
+    <ion-button (click)="onClick()" size="large">ثبت</ion-button>
+</ion-list>

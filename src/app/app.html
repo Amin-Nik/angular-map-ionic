@@ -1,0 +1,26 @@
+<ion-app id="app">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>{{headerTitle()}}</ion-title>
+      <ion-button routerLink="/home" id="back-btn" slot="start">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+
+    <ion-router-outlet>
+
+    </ion-router-outlet>
+
+
+  </ion-content>
+
+  <ion-footer class="text-center">
+    <ion-toolbar>
+      <ion-title>{{footerTitle()}}</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>
