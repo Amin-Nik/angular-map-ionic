@@ -22,12 +22,12 @@ import {
   IonFab,
   IonFabButton,
 } from '@ionic/angular';
-import { mobileView } from './components/mobile-view/mobile-view';
+import { addNewCar } from './components/add-new-car/add-new-car';
 import { FormsModule } from '@angular/forms';
 import { SelectCar } from './components/select-car/select-car';
 
 @NgModule({
-  declarations: [App, mobileView, Map, SelectCar],
+  declarations: [App, addNewCar, Map, SelectCar],
   imports: [
     FormsModule,
     BrowserModule,

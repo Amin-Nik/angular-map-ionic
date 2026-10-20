@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { mobileView } from './components/mobile-view/mobile-view';
+import { addNewCar } from './components/add-new-car/add-new-car';
 import { SelectCar } from './components/select-car/select-car';
 import { Map } from './components/map/map';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
-    component: mobileView,
+    component: addNewCar,
   },
   {
     path: 'map',

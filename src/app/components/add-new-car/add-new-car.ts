@@ -9,12 +9,12 @@ interface CarData {
 }
 
 @Component({
-  selector: 'app-mobile-view',
+  selector: 'app-add-new-car',
   standalone: false,
-  styleUrl: './mobile-view.css',
-  templateUrl: './mobile-view.html',
+  styleUrl: './add-new-car.css',
+  templateUrl: './add-new-car.html',
 })
-export class mobileView {
+export class addNewCar {
   mqtt = inject(Mqtt);
   router = inject(Router);
 
