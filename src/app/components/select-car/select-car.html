@@ -1,14 +1,19 @@
 <ion-list>
     @for (item of carsData(); track item.id) {
-    <ion-button (click)="setMqtt(item.carName,item.carNumber)" fill="outline" expand="block">
-        <div>
-            <ion-text>{{item.carName}}</ion-text>
-            <ion-text>{{item.carNumber}}</ion-text>
+    <div class="car-container">
+        <ion-button class="car-list" (click)="setMqtt(item.carName,item.carNumber)" fill="outline" expand="block">
+            <div>
+                <ion-text>{{item.carName}}</ion-text>
+                <ion-text>{{item.carNumber}}</ion-text>
+            </div>
+        </ion-button>
+        <div id="delete-btn" (click)="deleteCar(item.id)">
+            <ion-icon name="trash-outline"></ion-icon>
         </div>
-    </ion-button>
+    </div>
     }
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button (click)="navigateToAddPage()">
+        <ion-fab-button routerLink="/add">
             <ion-icon name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>

@@ -25,8 +25,8 @@ interface CarData {
 export class Mqtt {
   private mqtt = inject(MqttService);
   private gpsSubscription?: Subscription;
+
   localStorageCarId = '';
-  hasData = signal(false);
   carName = '';
   carNumber = '';
 
@@ -79,7 +79,6 @@ export class Mqtt {
         next: (payload) => {
           console.log('GPS MESSAGE RECEIVED:', payload);
           this.data.set(payload);
-          this.hasData.set(true);
         },
         error: (error) => {
           console.error('GPS STREAM ERROR:', error);
@@ -87,8 +86,6 @@ export class Mqtt {
       });
   }
   resetData(): void {
-    this.hasData.set(false);
-
     this.data.set({
       Accuracy: 0,
       Altitude: 0,

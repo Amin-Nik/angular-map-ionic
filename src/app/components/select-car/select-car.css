@@ -6,7 +6,7 @@ ion-list {
   align-items: center;
   gap: 20px;
 }
-ion-button {
+.car-list {
   width: 90%;
 }
 div {
@@ -29,4 +29,20 @@ ion-fab {
 }
 ion-text {
   text-transform: none;
+}
+#delete-btn {
+  background-color: rgb(165, 42, 42);
+  width: 20px;
+  height: 56px;
+  position: absolute;
+  right: 21px;
+  bottom: 6px;
+  border-radius: 0 4px 4px 0;
+}
+#delete-btn:hover {
+  background-color: rgb(164, 70, 70);
+}
+.car-container {
+  width: 100%;
+  position: relative;
 }

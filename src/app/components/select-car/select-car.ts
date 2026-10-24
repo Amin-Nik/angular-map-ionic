@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { add } from 'ionicons/icons';
+import { add, trashOutline } from 'ionicons/icons';
 import { Mqtt } from '../../services/mqtt';
 
 interface CarData {
@@ -17,18 +17,18 @@ interface CarData {
   templateUrl: './select-car.html',
 })
 export class SelectCar {
-  carsData = signal<[CarData] | undefined>(undefined);
+  carsData = signal<CarData[] | undefined>(undefined);
   router = inject(Router);
   mqtt = inject(Mqtt);
 
   constructor() {
-    addIcons({ add });
+    addIcons({ add, trashOutline });
   }
 
   ionViewWillEnter() {
     const local = localStorage.getItem('car-data');
     if (local) {
-      const carData: [CarData] = JSON.parse(local);
+      const carData: CarData[] = JSON.parse(local);
       this.carsData.set(carData);
     }
   }
@@ -38,7 +38,14 @@ export class SelectCar {
     this.router.navigate(['/map']);
   }
 
-  navigateToAddPage() {
-    this.router.navigate(['/add']);
+  deleteCar(id: string) {
+    const local = localStorage.getItem('car-data');
+    if (local) {
+      const carData: CarData[] = JSON.parse(local);
+      const theCarData = carData.filter((v) => v.id !== id);
+      const stringData = JSON.stringify(theCarData);
+      localStorage.setItem('car-data', stringData);
+      this.carsData.set(theCarData);
+    }
   }
 }

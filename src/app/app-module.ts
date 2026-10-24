@@ -2,7 +2,6 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Map } from './components/map/map';
 import { provideMqtt } from 'ngx-mqtt';
 import {
   IonApp,
@@ -27,7 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectCar } from './components/select-car/select-car';
 
 @NgModule({
-  declarations: [App, addNewCar, Map, SelectCar],
+  declarations: [App, addNewCar, SelectCar],
   imports: [
     FormsModule,
     BrowserModule,

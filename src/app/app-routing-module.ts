@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { addNewCar } from './components/add-new-car/add-new-car';
 import { SelectCar } from './components/select-car/select-car';
-import { Map } from './components/map/map';
 
 const routes: Routes = [
   {
@@ -20,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'map',
-    component: Map,
+    loadChildren: () => import('./module/map/map-module').then((m) => m.MapModule),
   },
 ];
 

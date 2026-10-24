@@ -17,7 +17,6 @@ export class App {
 
   headerTitle = signal<string>('انتخاب خودرو');
   footerTitle = signal<string>('');
-  hasData = this.mqtt.hasData();
 
   constructor() {
     addIcons({ chevronBackOutline });
@@ -34,9 +33,11 @@ export class App {
           if (!this.mqtt.carName && !this.mqtt.carNumber) {
             this.router.navigate(['/home']);
           }
-          console.log(this.mqtt.carName, this.mqtt.carNumber);
           this.headerTitle.set(this.mqtt.carName);
           this.footerTitle.set(this.mqtt.carNumber);
+        } else if (url === '/add') {
+          this.headerTitle.set('افزودن خودرو');
+          this.footerTitle.set('');
         }
       });
   }
